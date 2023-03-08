@@ -49,4 +49,17 @@ public class CustomListTest {
             list.deleteCity(new City("Saskatoon", "SK"));
         });
     }
+
+    @Test
+    public void testCountCities() {
+        CustomList list = new CustomList(null, cityList);
+        assertEquals(0, list.countCities());
+
+        City city = new City("Winnipeg", "MB");
+        list.addCity(city);
+        assertEquals(1, list.countCities());
+
+        list.remove(city);
+        assertEquals(0, list.countCities());
+    }
 }
